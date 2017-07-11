@@ -14,6 +14,9 @@ from models import User
 def index():
 	return render_template('index.html')
 
+@app.route('/old')
+def index_old():
+	return render_template('index_old.html')
 
 @app.route('/list/')
 def posts():

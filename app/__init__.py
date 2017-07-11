@@ -10,14 +10,14 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.pymongo import PyMongo
 from flask.ext.login import LoginManager
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 #Configuration of application, see configuration.py, choose one and uncomment.
 #app.config.from_object('configuration.ProductionConfig')
 app.config.from_object('app.configuration.DevelopmentConfig')
 #app.config.from_object('configuration.TestingConfig')
 
-bs = Bootstrap(app) #flask-bootstrap
+bs = Bootstrap(app)  #flask-bootstrap
 db = SQLAlchemy(app) #flask-sqlalchemy
 
 lm = LoginManager()
