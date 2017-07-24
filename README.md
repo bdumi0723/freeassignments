@@ -40,7 +40,14 @@ After, install all necessary to run:
 
 Than, run the application:
 
-	$ python run.py
+	$ python run.py 
+    or export FLASK_APP
+    Windows: 
+    navigate in the root of the project and type:
+    setx FLASK_APP   app.py
+    setx FLASK_DEBUG 1
+    open another shell / powershell 
+    
 
 To see your application, access this url in your browser: 
 
