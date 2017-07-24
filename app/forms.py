@@ -4,7 +4,7 @@ Python Aplication Template
 Licence: GPLv3
 """
 from flask_wtf import Form
-from wtforms import StringField, TextAreaField, SubmitField
+from wtforms import StringField, TextAreaField, SubmitField, IntegerField
 from wtforms.validators import InputRequired, Email
 
 class ExampleForm(Form):
@@ -15,3 +15,7 @@ class ExampleForm(Form):
 class LoginForm(Form):
 	user = StringField(u'User', validators = [InputRequired()])
 	password = StringField(u'Pass', validators = [InputRequired()])
+	
+class MyForm2(Form):
+	n1 = IntegerField('n1', validators=[InputRequired()]
+	n2 = IntegerField('n2', validators=[InputRequired()]
