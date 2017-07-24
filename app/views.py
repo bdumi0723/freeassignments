@@ -63,6 +63,13 @@ def myform():
         return 'The result is %r' %(form.number1.data * form.number2.data)
     return render_template('myform.html',title = 'MyFrom', form = form)
 
+@app.route('/form_2', methods=['GET', 'POST']
+def myform2():
+    form = MyForm2()
+    if form.validate_on_submit():
+        return 'Rezultatul este %r' % (form.n1.data * form.n2.data)
+    return render_template('myform2.html', form=form)
+
 @app.route('/get_table/')
 
 @app.route('/login/', methods = ['GET', 'POST'])
