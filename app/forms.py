@@ -7,6 +7,9 @@ from flask_wtf import Form
 from wtforms import StringField, TextAreaField, SubmitField
 from wtforms.validators import InputRequired, Email
 
+class MyForm(Form):
+	content = StringField(u'Conteúdo')
+
 class ExampleForm(Form):
 	content = StringField(u'Conteúdo')
 	#date = DateTimeField(u'Data', format='%d/%m/%Y %H:%M')
