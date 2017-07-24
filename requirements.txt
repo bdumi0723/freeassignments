@@ -23,3 +23,5 @@ blinker==1.4
 pymongo==3.4.0
 python-dateutil==2.6.1
 wsgiref==0.1.2
+pymysql=0.7.11
+
