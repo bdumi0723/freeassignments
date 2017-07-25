@@ -1,48 +1,264 @@
-{% extends "bootstrap_base.html" %}
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/page-with-sidebar.dwt" codeOutsideHTMLIsLocked="false" -->
 
-{%block title%}Base{%endblock%}
+<head>
 
-{%block body_content%}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+    <meta name="description" content="Read - Responsive HTML5 Template">
+    <meta name="keywords" content="read, blog, html5, portfolio">
+    <meta name="author" content="Pixelwars">
+    
+    <!-- InstanceBeginEditable name="doctitle" -->
+    <title>Read - Responsive HTML5 Template</title>
+    <!-- InstanceEndEditable -->
+    
+    <!-- FAV and TOUCH ICONS -->
+    <link rel="shortcut icon" href="/static/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/ico/logo-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/ico/logo-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/ico/logo-72.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/ico/logo-57.png">
 
-<div class="container">
-	<div class="row">
-		<div class="span12">
+    <!-- Some style for media .. -->
+		<link rel="stylesheet" type="text/css" href="/static/js/mediaelement/mediaelementplayer.css">
 
-			<div class="navbar">
-			  <div class="navbar-inner">
-			    <a class="brand" href="#">MySiteName</a>
-			    <ul class="nav">
-			      <li class="active"><a href="/">Home</a></li>
-			      <li><a href="/list">List</a></li>
-			      <li><a href="/new">New</a></li>
-			    </ul>
-			  </div>
-			</div>
+    <!-- FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=UnifrakturMaguntia' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Coustard' rel='stylesheet' type='text/css'>
+    
+    <!--[if lte IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/selectivizr-min.js"></script>
+    <![endif]-->
+    
+    <!-- STYLES -->
+    <link rel="stylesheet" type="text/css" media="print" href="/static/css/print.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/grid.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/static/js/google-code-prettify/prettify.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/uniform.default.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/flexslider.css">
+    
+    <!-- SCRIPTS -->
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/static/js/jquery-1.8.3.min.js"><\/script>')</script>
+    
+    
+	<!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+    
 
-			<form class="form form-inline pull-right">
-			  <input type="text" class="span2">
-			  <button type="submit" class="btn">Submit</button>
-			</form>
+</head>
 
-		</div>
-	</div>
 
-    {% with messages = get_flashed_messages() %}
-	    {% if messages %}
-	    <div class="row">
-	    	<div class="span8 offset4">
-			    <ul>
-			    {% for message in messages %}
-			        <li>{{ message }} </li>
-			    {% endfor %}
-			    </ul>
-			</div>
-		</div>
-	    {% endif %}
-    {% endwith %}
+<body>
 
-	{%block main_content%}{%endblock%}
+    <!-- #PAGE -->
+    <div id="page" class="hfeed site"> 
+      
+      <!-- .site-header -->
+      <header class="site-header wrapper" role="banner"> 
+        
+        <!-- .row -->
+        <div class="row"> 
+          
+          <!-- .site-title -->
+          <hgroup>
+            <h1 class="site-title"> <a href="index.html" title="Read" rel="home">Read<!--<img src="/static/images/logo.png" alt="logo">--></a> </h1>
+            <h2 class="site-description">. . . a minimalistic template focused on readability.</h2>
+          </hgroup>
+          <!-- .site-title --> 
+          
+          <!-- #site-navigation -->
+          <nav id="site-navigation" class="main-navigation" role="navigation">
+            <ul>
+              <li class="current-menu-item"><a href="/">Home</a></li>
+              <li class="current-menu-item"><a href="/add_assignment">Add</a></li>
+              <li class="current-menu-item"><a href="/list_db">List</a></li>
+              <li class="current-menu-item"><a href="/theme">Theme</a></li>
+            </ul>
+          </nav>
+          <!-- #site-navigation --> 
+          
+        </div>
+        <!-- .row --> 
+        
+      </header>
+      <!-- .site-header --> 
+      
+      <!-- #main -->
+      <section id="main" class="middle wrapper">
+        <div class="row row-fluid">
+        
+              <!-- #primary -->
+              <div id="primary" class="site-content span8"> 
+                
+                <!-- #content -->
+                <div id="content" role="main">
+					
+					<!-- InstanceBeginEditable name="Middle-Content" -->
+                        
+                        <!-- .blog-posts -->
+                            <div class="blog-posts row">
 
-</div>
+															{% block main_content %}{% endblock %}
+                                
+                            </div>
+                            <!-- .blog-posts -->
+                        
+                        <!-- InstanceEndEditable -->
+                
+                </div>
+                <!-- #content --> 
+                
+              </div>
+              <!-- #primary --> 
+              
+              
+              <!-- #secondary -->
+              <div id="secondary" class="widget-area span4" role="complementary">
+                
+                <!-- widget : search -->
+                <aside class="widget widget_search">
+                  <h3 class="widget-title">Search</h3>
+                  <form role="search" method="get" id="searchform" action="#">
+                    <div>
+                      <label class="screen-reader-text" for="s">Search for:</label>
+                      <input type="text" value="" name="s" id="s">
+                      <input type="submit" id="searchsubmit" value="Search">
+                    </div>
+                  </form>
+                </aside>
+                <!-- widget : search -->
+                
+                <!-- widget : recent_entries -->
+                <aside class="widget widget_recent_entries">
+                  <h3 class="widget-title">Menu</h3>
+                  <ul>
+                    <li><a id="action_1" href="#" title="Action 1">Action 1</a></li>
+                    <li><a id="action_2" href="#" title="Action 2">Action 2</a></li>
+                  </ul>
+                </aside>
+                <!-- widget : recent_entries -->
+                
+                <!-- widget : social -->
+                <aside class="widget widget_social">
+                     <h3 class="widget-title">Let's socialize!</h3>
+                     <!-- social icons -->
+                     <ul class="social">
+                        <li><a class="facebook" href="#">&#88;</a></li>
+                        <li><a class="twitter" href="#">&#95;</a></li>
+                        <li><a class="linkedin" href="#">&#118;</a></li>
+                        <li><a class="google" href="#">&#107;</a></li>
+                        <li><a class="vimeo" href="#">&#33;</a></li>
+                        <li><a class="pinterest" href="#"></a></li>
+                        <li><a class="flickr" href="#">&#98;</a></li>
+                        <li><a class="dribble" href="#">&#83;</a></li>
+                        <li><a class="lastfm" href="#">&#117;</a></li>
+                        <li><a class="rss" href="#">&#42;</a></li>
+                        <li><a class="forrst" href="#">&#100;</a></li>
+                        <li><a class="skype" href="#">&#58;</a></li>
+                        <li><a class="picassa" href="#">&#56;</a></li>
+                        <li><a class="youtube" href="#">&#39;</a></li>
+                        <li><a class="behance" href="#">&#71;</a></li>
+                        <li><a class="tumblr" href="#">&#92;</a></li>
+                        <li><a class="blogger" href="#">&#74;</a></li>
+                        <li><a class="delicious" href="#">&#76;</a></li>
+                        <li><a class="digg" href="#">&#81;</a></li>
+                        <li><a class="friendfeed" href="#">&#102;</a></li>
+                        <li><a class="github" href="#">&#106;</a></li>
+                        <li><a class="wordpress" href="#">$</a></li>
+                    </ul>
+                    <!-- social icons -->
+                </aside>
+                <!-- widget : social -->
+                
+                
+                <!-- widget : links -->
+                <aside class="widget widget_links">
+                  <h3 class="widget-title">Blogroll</h3>
+                  <ul class="blogroll">
+                    <li><a href="http://codex.wordpress.org/">Documentation</a></li>
+                    <li><a href="http://wordpress.org/support/forum/requests-and-feedback">Feedback</a></li>
+                    <li><a href="http://wordpress.org/extend/plugins/">Plugins</a></li>
+                    <li><a href="http://wordpress.org/support/">Support Forums</a></li>
+                  </ul>
+                </aside>
+                <!-- widget : links -->
+                
+                <!-- widget : pages -->
+                <aside class="widget widget_pages">
+                  <h3 class="widget-title">Pages</h3>
+                  <ul>
+                    <li class="page_item"><a href="#">About Me</a></li>
+                    <li class="page_item current_page_item"><a href="#">Gallery</a></li>
+                    <li class="page_item"><a href="#">Contact</a></li>
+                  </ul>
+                </aside>
+                <!-- widget : pages -->
+                
+                <!-- widget : tag_cloud -->
+                <aside class="widget widget_tag_cloud">
+                  <h3 class="widget-title">Tags</h3>
+                  <div class="tagcloud"> <a href="#" title="1 topic" style="font-size: 8pt;">adaptive</a> <a href="#" title="2 topics" style="font-size: 22pt;">design</a> <a href="#" title="1 topic" style="font-size: 8pt;">html</a> <a href="#" title="2 topics" style="font-size: 22pt;">responsive</a> <a href="#" title="2 topics" style="font-size: 22pt;">think</a> <a href="#" title="1 topic" style="font-size: 8pt;">web design</a> <a href="#" title="1 topic" style="font-size: 8pt;">css</a> <a href="#" title="2 topics" style="font-size: 22pt;">animations</a> <a href="#" title="1 topic" style="font-size: 8pt;">layout</a> <a href="#" title="2 topics" style="font-size: 14pt;">mobile</a> <a href="#" title="2 topics" style="font-size: 22pt;">think</a> <a href="#" title="1 topic" style="font-size: 8pt;">typography</a> </div>
+                </aside>
+                <!-- widget : tag_cloud -->
+                
+         </div>
+      </section>
+      <!-- #main --> 
+      
+      <!-- .site-footer -->
+      <footer class="site-footer wrapper" role="contentinfo"> 
+        <!-- .row -->
+        <div class="row">
+        
+          <!-- #supplementary -->	
+          <div id="supplementary" class="row-fluid project-action">
+        
+							FOOTER
+            
+          </div>
+          <!-- #supplementary -->	
+          
+          <!-- .site-info -->
+          <div class="site-info">by Pixelwars</div>
+          <!-- .site-info --> 
+          
+        </div>
 
-{%endblock%}
+        <!-- .row --> 
+      </footer>
+      <!-- .site-footer --> 
+      
+    </div>
+    <!-- #PAGE -->
+    
+    <!-- SCRIPTS -->
+    <script src="/static/js/detectmobilebrowser.js"></script>
+    <script src="/static/js/modernizr.js"></script>
+    <script src="/static/js/jquery.imagesloaded.min.js"></script>
+    <script src="/static/js/jquery.fitvids.js"></script>
+    <script src="/static/js/google-code-prettify/prettify.js"></script>
+    <script src="/static/js/jquery.uniform.min.js"></script>
+    
+    <!-- InstanceBeginEditable name="body-end" -->
+		<script src="/static/js/jquery.flexslider-min.js"></script>
+    <script src="/static/js/mediaelement/mediaelement-and-player.min.js"></script>
+    <!-- InstanceEndEditable -->
+    
+    <script src="/static/js/main.js"></script>
+    
+    <script type=text/javascript>
+    	$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+
+</body>
+<!-- InstanceEnd --></html>

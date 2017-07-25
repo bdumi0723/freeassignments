@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block main_content %}
+
+    <table>
+    <tbody>
+      <tr>
+          <th>#</th>
+
+          <th>Key_1</th>
+          <th>Key_2</th>
+          <th>Key_3</th>
+          <th>Key_4</th>
+          <th>Key_5</th>
+
+          <th>Data_1</th>
+          <th>Data_2</th>
+          <th>Data_3</th>
+          <th>Data_4</th>
+          <th>Data_5</th>
+
+      </tr>
+
+      {% for obj in objects %}
+      <tr>
+        <td>{{ obj.id }}</td>
+
+        <td>{{ obj.key1   }}</td>
+        <td>{{ obj.key2   }}</td>
+        <td>{{ obj.key3   }}</td>
+        <td>{{ obj.key4   }}</td>
+        <td>{{ obj.key5   }}</td>
+
+        <td>{{ obj.data1   }}</td>
+        <td>{{ obj.data2   }}</td>
+        <td>{{ obj.data3   }}</td>
+        <td>{{ obj.data4   }}</td>
+        <td>{{ obj.data5   }}</td>
+
+      </tr>
+      {% endfor %}
+      
+      </tbody>
+    </table>
+
+{% endblock %}

@@ -4,99 +4,92 @@ Python Aplication Template
 Licence: GPLv3
 """
 
-from flask import url_for, redirect, render_template, flash, g, session
+from flask import url_for, redirect, render_template, flash, g, session, jsonify, request
 from flask_login import login_user, logout_user, current_user, login_required
-from app import app, lm
+from app import app
 from app.models import Object
-from forms import ExampleForm, LoginForm, MyForm
+from forms import NewAssignmentForm
 from models import User
 from app import db
 
+# App Entry point ..
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/old')
+# Add another assignment
+@app.route('/add_assignment', methods=['GET', 'POST'])
+def add_assignment():
+
+    submit = request.form.get('submit', None, type=str)
+
+    # POST ..
+    if submit:
+
+        title = request.form.get('title',        '', type=str)
+        info  = request.form.get('info',         '', type=str)
+        desc  = request.form.get('description',  '', type=str)
+        tags  = request.form.get('tags',         '', type=str)
+
+        obj      = Object()
+        obj.key1 = title ;
+        obj.key2 = info  ;
+        obj.key3 = desc  ;
+        obj.key4 = tags  ;
+
+        db.session.add   ( obj ); # open transaction 
+        db.session.commit(     ); # save
+
+        return 'Save ok: ' + str( obj.id )
+
+    # On GET we display the form ..         
+    else:    
+        return render_template('common/add_assignment.html',
+                                form=NewAssignmentForm())
+
+# View assignment
+@app.route('/view_assignment', methods=['GET'])
+def view_assignment():
+    c
+    return render_template('common/view_assignment.html',
+                            assign_id=assign_id)
+
+# TESTING ONLY --------------------------------
+# Usefull ONLY to check out the theme
+# Functionally deprecated in production !!!
+# ---------------------------------------------
+@app.route('/theme')
 def index_old():
-    return render_template('index_old.html')
+    return render_template('theme.html')
 
-@app.route('/list/')
-def posts():
-    return render_template('list.html')
+# TESTING ONLY --------------------------------
+# Check Ajax comm
+# Functionally deprecated in production !!!
+# ---------------------------------------------
+@app.route('/oper_numbers', methods = ['POST'])
+def add_numbers():
+    a    = request.form.get('a'   , 0    , type=int)
+    b    = request.form.get('b'   , 0    , type=int)
+    oper = request.form.get('oper', 'add', type=str)
 
-@app.route('/new/')
-@login_required
-def new():
-    form = ExampleForm()
-    return render_template('new.html', form=form)
+    if oper == "add":
+        return jsonify(result=a + b)
 
-@app.route('/save/', methods = ['GET','POST'])
-@login_required
-def save():
-    form = ExampleForm()
-    if form.validate_on_submit():
-        print "salvando os dados:"
-        print form.title.data
-        print form.content.data
-        print form.date.data
-        flash('Dados salvos!')
-    return render_template('new.html', form=form)
-
-@app.route('/view/<id>/')
-def view(id):
-    return render_template('view.html')
-
-# === User login methods ===
-
-@app.before_request
-def before_request():
-    g.user = current_user
-
-@lm.user_loader
-def load_user(id):
-    return User.query.get(int(id))
-
-@app.route('/form_1/', methods = ['GET', 'POST'])
-def myform():
-    form = MyForm()
-    if form.validate_on_submit():
-        return 'The result is %r' %(form.number1.data * form.number2.data)
-    return render_template('myform.html',title = 'MyFrom', form = form)
-
-@app.route('/get_table/')
-
-@app.route('/login/', methods = ['GET', 'POST'])
-def login():
-    if g.user is not None and g.user.is_authenticated():
-        return redirect(url_for('index'))
-    form = LoginForm()
-    if form.validate_on_submit():
-        login_user(g.user)
-
-    return render_template('login.html', 
-        title = 'Sign In',
-        form = form)
-
-@app.route('/logout/')
-def logout():
-    logout_user()
-    return redirect(url_for('index'))
-
-@app.route('/table')
-def testdb():
-    data1 = Object(2,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,0)
-    data2 = Object(3,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,'0',0,0)
+    if oper == "multiply":
+        return jsonify(result=a * b)
     
-    db.session.add(data1)
-    db.session.add(data2)
-    db.session.commit()
+    return jsonify(result='oper err: ' + oper)
 
-    results = Object.query.all()
+# TESTING ONLY --------------------------------
+# List all db ..
+# Functionally deprecated in production !!!
+# ---------------------------------------------
+@app.route('/list_db')
+def list_db():
 
-    string = ''
+    objects = Object.query.all()
 
-    for result in results:
-        string = string + str(result.id) + ' '
-    return string
+    return render_template("common/list_db.html",
+                           objects=Object.query.all())
 
 # ====================
