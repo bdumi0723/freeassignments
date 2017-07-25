@@ -1,5 +1,9 @@
 
 
+# Adi: Tuesday, July 25, 2017 1:56:50 PM
+Changes:
+    - new func: add  / view assignments ..
+        
 # Adi: Monday, July 24, 2017 6:15:20 PM
 Changes:
     - update deps [ added pymysql=0.7.11 ]
