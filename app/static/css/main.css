@@ -5,7 +5,6 @@
 	Author: pixelwars
 */
 
-
 /* -------------------------------------------- */
 /* GENERIC */
 html { font-size:100%; }
@@ -184,8 +183,8 @@ dd { font-size:.9em; padding-bottom:1em; margin-left:1em; }
 dd:before { content: "\f0a4"; font-size:14px; }
 
 /* forms */
-label { display:block; font-size:.9em; margin-bottom:.2em; }
-input:not([type=submit]):not([type=button]):not([type=file]):not([type=radio]):not([type=checkbox]), textarea, select { padding:.7em; width:262px; max-width: 100%; font-size:.9em; color:#444; border:1px solid #ddd; border-radius:0; background:#fff; -webkit-appearance: none; -webkit-tap-highlight-color: transparent; -moz-box-sizing:border-box;-webkit-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box; }
+label { display:block; font-size:.9em; margin-bottom:.2em; margin-top: .2em;  }
+input:not([type=submit]):not([type=button]):not([type=file]):not([type=radio]):not([type=checkbox]), textarea, select { padding:.7em; width:262px; max-width: 100%; font-size:.9em; color:#444;border-left: none;border-right: none;border-top: none; border-bottom: 2px solid #ddd; border-radius:0; background:#fff; -webkit-appearance: none; -webkit-tap-highlight-color: transparent; -moz-box-sizing:border-box;-webkit-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box; }
 input:not([type=submit]):not([type=button]):not([type=file]):not([type=radio]):not([type=checkbox]):focus, textarea:focus, input:focus, select:focus, div.uploader:hover { border-color:#aaa; outline:0; }
 select { min-width:262px; }
 textarea { width:41%; min-width:262px; min-height:10em; }
@@ -964,3 +963,6 @@ a.loadmore { display:block; position:relative; margin: 3em auto 0 auto; max-widt
 	/* BLOG */
 	.mejs-audio { max-width: 280px; }
 }
+
+/*Add Assignments*/
+
